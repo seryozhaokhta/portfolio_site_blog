@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <header class="header">
+
+    <div class="wrapper">
+        <div class="content">
+            <header class="header">
+                <div class="link-container">
+                    <a href="URL-Past" target="_blank">
+                        <img class="link-icon" src="arrow_lf.svg" alt="Link">
+                        Past
+                    </a>
+                    <a href="URL-Today" target="_blank">
+                        <img class="link-icon" src="arrow_lf.svg" alt="Link">
+                        Today
+                    </a>
+                    <a href="URL-Sketches" target="_blank">
+                        <img class="link-icon" src="arrow_lf.svg" alt="Link">
+                        Sketches
+                    </a>
+                </div>
+
+                <input type="checkbox" id="theme" class="theme-switch" />
+                <label for="theme" class="theme-label">
+                    <div class="ball"></div>
+                </label>
+
+                <div class="cell">
+                    <img class="icon" src="github.svg" alt="Github">
+                    <img class="icon" src="linkedin.svg" alt="LinkedIn">
+                    <img class="icon" src="youtube.svg" alt="YouTube">
+                </div>
+            </header>
+
+            <main class="main">
+                <div class="cell">
+                    <h1>educational videos</h1>
+                    <p class="description">Educational and enlightening videos to share my passion for art and history
+                    </p>
+                </div>
+
+                <div class="cell">
+                    <h1>envisioning information</h1>
+                    <p class="description">My blog: data visualization, interactive and generative design, sharing my
+                        thoughts on various techniques and tools</p>
+                </div>
+
+                <div class="cell">
+                    <h2>app<br>drafts</h2>
+                    <p class="description_2">future app prototypes</p>
+                </div>
+
+                <div class="cell">
+                    <h1>cgi</h1>
+                    <p class="description">digital portfolio:<br>Cinema 4D,<br>TouchDesigner,<br>and other software</p>
+                </div>
+
+<div class="cell">
+    <h1>website development</h1>
+    <div class="link-container">
+        <a href="URL-портфолио-Elena-A" target="_blank">
+            <img class="link-icon" src="arrow_lf.svg" alt="Link">
+            Portfolio website for Elena A.
+        </a>
+    </div>
+</div>
+
+<!-- 
+                <div class="cell">
+                    <img class="icon" src="github.svg" alt="Github">
+                    <img class="icon" src="linkedin.svg" alt="LinkedIn">
+                    <img class="icon" src="youtube.svg" alt="YouTube">
+                </div> -->
+
+                <div class="cell">
+                    <h2>about me</h2>
+                    <p class="description_2">arzamas</p>
+                </div>
+            </main>
+
+<footer class="footer">
+    <button id="email-button" class="email-button" onclick="copyToClipboard('seryozha.okhta@gmail.com')">
+        <img class="copy-icon" src="to_copy.svg" alt="Copy">
+        <span id="email-text">seryozha.okhta@gmail.com</span>
+    </button>
+    <div class="socials">
+        <!-- insert social media icons here -->
+    </div>
+</footer>
+
+        </div>
+
+        <div id="interactive" class="interactive"></div>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="noise.js"></script>
+</body>
+
+</html>
