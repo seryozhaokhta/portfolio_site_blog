@@ -1,16 +1,66 @@
-body {
+body,
+html {
     margin: 0;
     padding: 0;
-    background: #0a0a0a;
+    height: 100%;
+    overflow: hidden;
+    /* optional, to remove scrollbars */
     box-sizing: border-box;
     font-family: "PT Sans", sans-serif;
+    transition: 0.65s ease;
+}
+
+#interactive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* puts the interactive window behind other content */
+}
+
+body.light-theme {
+    background: #969696;
+    --text-color: #515151;
+    --link-color: #ff9e01;
+    --icon-color: #000;
+}
+
+body.dark-theme {
+    background: #000000;
+    --text-color: #939393;
+    --link-color: #00FFBF;
+    --icon-color: #fff;
+}
+
+body {
+    color: var(--text-color);
+}
+
+.element {
+    user-select: none;
+    cursor: pointer;
+}
+
+h1,
+h2,
+p,
+.description,
+.description_2 {
+    user-select: none;
+    color: var(--text-color);
 }
 
 a {
-    color: #00FFBF;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
+    color: var(--link-color);
+    user-select: none;
+}
+
+.icon,
+.link-icon,
+.copy-icon {
+    color: var(--icon-color);
 }
 
 a::after {
@@ -21,7 +71,7 @@ a::after {
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #00FFBF;
+    background-color: var(--link-color);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -40,31 +90,47 @@ a:hover .link-button {
     display: inline-block;
     padding: 5px 10px;
     text-decoration: none;
-    color: #00FFBF;
     position: relative;
     transition: transform 0.3s ease;
 }
 
-.link-container {
-    display: flex;
-    align-items: center;
+.link-icon {
+    padding: 2px;
+    margin-right: 2px;
+    transition: transform 0.3s ease;
+    width: 10px;
+    height: 10px;
+}
+
+.icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 12px;
+    transition: transform 0.3s ease;
+    transform: scale(0.98);
+}
+
+.icon:hover {
+    transform: scale(1.68);
 }
 
 h1 {
+
     font-size: 40px;
     font-weight: bold;
-    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 0.95;
 }
 
 h2 {
     font-size: 20px;
     font-weight: bold;
-    color: #ffffff;
+    text-transform: lowercase;
+    line-height: 0.95;
 }
 
 p {
-    font-size: 25px;
-    color: #ffffff;
+    font-size: 15px;
 }
 
 .wrapper {
@@ -81,18 +147,51 @@ p {
 }
 
 .header {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    margin: 0px;
+}
+
+.link-container,
+.theme-container,
+.icons-container {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.link-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.link-container a {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.theme-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .main {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
 }
 
 .main .cell {
+    max-width: 540px;
     position: relative;
 }
 
@@ -108,31 +207,6 @@ p {
     max-height: 100px;
 }
 
-.icon {
-    width: 16px;
-    height: 16px;
-    margin: 3px 3px;
-    transition: transform 0.3s ease;
-}
-
-.icon:hover {
-    transform: scale(1.25);
-}
-
-@media (hover: none) and (pointer: coarse) {
-
-    .main .cell .description,
-    .main .cell .description_2 {
-        max-height: 0;
-        transition: max-height 0.3s ease;
-    }
-
-    .main .cell:active .description,
-    .main .cell:active .description_2 {
-        max-height: 100px;
-    }
-}
-
 .transparent-button {
     background: transparent;
     border: none;
@@ -144,7 +218,7 @@ p {
 
 input[type="radio"],
 button {
-    color: #00FFBF;
+    color: var(--link-color);
     background: transparent;
     border: none;
 }
@@ -163,12 +237,11 @@ button {
 .copy-icon {
     width: 16px;
     height: 16px;
-    fill: white;
     transition: transform 0.3s ease;
 }
 
 .email-button:hover .copy-icon {
-    transform: scale(1.25);
+    transform: scale(0.68);
 }
 
 .theme-switch {
@@ -183,21 +256,22 @@ button {
     display: inline-block;
     border-radius: 15px;
     cursor: pointer;
-    border: 1px solid #00FFBF;
+    border: 1px solid var(--link-color);
+    transform: scale(0.68);
 }
 
 .ball {
     position: absolute;
     top: 5px;
     left: 5px;
-    background: #00FFBF;
+    background: var(--link-color);
     width: 20px;
     height: 20px;
     border-radius: 50%;
     transition: all 0.3s;
 }
 
-.theme-switch:checked+.theme-label .ball {
+.theme-switch:checked + .theme-label .ball {
     transform: translateX(30px);
 }
 

@@ -1,35 +1,38 @@
-function copyToClipboard(text) {
-    var dummy = document.createElement("textarea");
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-}
+const themeSwitch = document.getElementById('theme');
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    const currentTheme = localStorage.getItem('theme');
 
-const enRuToggle = document.getElementById('enRuToggle');
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
 
-enRuToggle.addEventListener('change', function () {
-    if (enRuToggle.checked) {
-        // Выполните действия при переключении на английский язык
+        themeSwitch.checked = currentTheme === 'light-theme';
     } else {
-        // Выполните действия при переключении на русский язык
+
+        document.body.classList.add('light-theme');
+        localStorage.setItem('theme', 'light-theme');
     }
 });
 
+themeSwitch.addEventListener('change', function () {
+    const body = document.body;
+    if (themeSwitch.checked) {
+        body.classList.replace('dark-theme', 'light-theme');
+        localStorage.setItem('theme', 'light-theme');
+    } else {
+        body.classList.replace('light-theme', 'dark-theme');
+        localStorage.setItem('theme', 'dark-theme');
+    }
+});
 
 function copyToClipboard(email) {
     navigator.clipboard.writeText(email).then(function () {
-        // success
+
         let emailText = document.getElementById("email-text");
         emailText.textContent = "copy!";
         setTimeout(function () {
-            emailText.textContent = email;
-        }, 2000); // изменение текста восстанавливается через 2 секунды
+            emailText.textContent = email;}, 2000);
     }, function () {
-        // error
         console.error("Failed to copy text to clipboard.");
     });
 }
-
