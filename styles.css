@@ -3,7 +3,6 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
 
     box-sizing: border-box;
     font-family: "PT Sans", sans-serif;
@@ -198,10 +197,12 @@ p {
 .wrapper {
     display: flex;
     height: 100vh;
+    min-height: 100%;
 }
 
 .content {
     flex: 1;
+    overflow: auto;
 }
 
 .interactive {
@@ -251,6 +252,7 @@ p {
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
     padding: 0 12px;
+    padding-bottom: 24px;
 }
 
 .main .cell {
@@ -285,8 +287,8 @@ button {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    padding-top: 48px;
-    bottom: 0;
+    padding-top: 18px;
+    bottom: 12px;
     width: 100%;
 }
 
