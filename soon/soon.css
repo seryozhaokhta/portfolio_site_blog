@@ -1,0 +1,49 @@
+body {
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT Sans", sans-serif;
+    color: #333333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    margin: 0px;
+}
+
+.link-icon {
+    padding: 2px;
+    margin-right: 2px;
+    transition: transform 0.3s ease;
+    width: 10px;
+    height: 10px;
+    user-select: none;
+}
+
+.link-container {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.link-container a {
+    display: inline-block;
+    padding-right: 20px;
+    color: #333333;
+    user-select: none;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.main .cell {
+    position: relative;
+}

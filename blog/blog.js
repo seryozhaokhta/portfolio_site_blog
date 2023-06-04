@@ -6,7 +6,7 @@ document.getElementById('theme').addEventListener('change', function (event) {
     }
 });
 
-document.querySelectorAll('.tag').forEach(tag => {
+document.querySelectorAll('.tag-content').forEach(tag => {
     tag.addEventListener('click', function () {
         const tagType = this.getAttribute('data-tag');
         document.querySelectorAll('.post').forEach(post => {
@@ -18,5 +18,4 @@ document.querySelectorAll('.tag').forEach(tag => {
         });
     });
 });
-
 
